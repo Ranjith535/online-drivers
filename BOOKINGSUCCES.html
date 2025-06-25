@@ -1,0 +1,143 @@
+<html>
+ <head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+   body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+        overflow-x: hidden;
+    }
+    .navbar {
+        background: linear-gradient(to right, #2980b9, #3498db);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        padding: 1rem 0;
+    }
+    .nav-button {
+        transition: all 0.3s ease;
+        border-radius: 8px;
+        background: #ffffff;
+        color: #2980b9;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+    }
+    .nav-button:hover {
+        background: #2ecc71;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .popup {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+    }
+    .popup-content {
+        background: white;
+        padding: 3rem;
+        border-radius: 16px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        text-align: center;
+        max-width: 500px;
+        animation: slideIn 0.6s ease;
+        border: 2px solid #2ecc71;
+    }
+    @keyframes slideIn {
+        from {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    .close-btn {
+        background: #e74c3c;
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+    }
+    .close-btn:hover {
+        background: #c0392b;
+        transform: scale(1.05);
+    }
+    .hidden {
+        display: none;
+    }
+    .main-message {
+        text-align: center;
+        color: #2c3e50;
+        animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .tagline {
+        color: #7f8c8d;
+        font-style: italic;
+        font-weight: 400;
+    }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container mx-auto px-6 py-2">
+      <div class="flex justify-center space-x-8">
+        <a href="home1.html" class="nav-button">Home</a>
+        <a href="driverstypes.html" class="nav-button">services</a>
+        <a href="city.html" class="nav-button">City</a>
+        <a href="contactpage.html" class="nav-button">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Popup -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h1 class="text-4xl font-bold text-green-600 mb-4">Booking Successful!</h1>
+      <p class="text-gray-600 mb-6 text-lg">Your ride is confirmed. Enjoy your journey with us!</p>
+      <button id="closePopup" class="close-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex flex-col items-center justify-center flex-grow pt-24">
+    <div id="thankYouMessage" class="main-message hidden">
+      <h2 class="text-6xl font-bold mb-4 text-blue-800">Thank You!</h2>
+      <p class="text-3xl text-gray-700">Visit Again</p>
+      <p class='{tagline} mt-6 text-xl'>“Your Journey, Our Priority”</p>
+    </div>
+  </div>
+
+  <script>
+    const popup = document.getElementById('popup');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+    const closePopupBtn = document.getElementById('closePopup');
+
+    closePopupBtn.addEventListener('click', () => {
+        popup.classList.add('hidden');
+        thankYouMessage.classList.remove('hidden');
+    });
+  </script>
+ </body>
+</html>

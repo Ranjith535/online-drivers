@@ -1,0 +1,63 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white font-roboto flex items-center justify-center min-h-screen">
+    <div class="relative w-full max-w-md p-6 bg-white shadow-lg rounded-lg">
+        <div class="absolute top-0 left-0 w-32 h-32 bg-red-200 transform -translate-x-1/2 -translate-y-1/2 rotate-45"></div>
+        <div class="absolute top-0 right-0 w-32 h-32 bg-red-200 transform translate-x-1/2 -translate-y-1/2 rotate-45"></div>
+        <div class="absolute bottom-0 left-0 w-32 h-32 bg-red-200 transform -translate-x-1/2 translate-y-1/2 rotate-45"></div>
+        <div class="absolute bottom-0 right-0 w-32 h-32 bg-red-200 transform translate-x-1/2 translate-y-1/2 rotate-45"></div>
+        <div class="relative z-10 bg-gray-200 p-8 rounded-lg shadow-lg">
+            <h2 class="text-center text-lg font-bold mb-4 bg-pink-200 text-pink-800 py-2 px-4 rounded-full inline-block mx-auto">
+                DRIVER REGISTRATION
+            </h2>
+            <form action="home1.html" method="GET">
+                <div class="mb-4">
+                    <label class="block text-gray-700">NAME :</label>
+                    <input class="w-full px-3 py-2 border rounded" placeholder="Enter your name" type="text" required/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">ADDRESS :</label>
+                    <input class="w-full px-3 py-2 border rounded" placeholder="Enter your address" type="text" required/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">ADHAR NO :</label>
+                    <input class="w-full px-3 py-2 border rounded" placeholder="Enter your Adhar number" type="text" required/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">DL NO :</label>
+                    <input class="w-full px-3 py-2 border rounded" placeholder="Enter your DL number" type="text" required/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">EXPERIENCE :</label>
+                    <input class="w-full px-3 py-2 border rounded" placeholder="Enter your experience" type="text" required/>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">PHOTO :</label>
+                    <div class="flex items-center">
+                        <input class="hidden" id="upload" type="file" required/>
+                        <label class="w-full px-3 py-2 border rounded cursor-pointer" for="upload">UPLOAD IMAGE</label>
+                        <i class="fas fa-camera ml-2"></i>
+                    </div>
+                </div>
+                <button class="w-full bg-gray-700 text-white py-2 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:ring-opacity-50 transition duration-300 ease-in-out transform hover:scale-105" type="submit" style="animation: bounce 1s infinite;">
+                    <li><a href="succes.html">REGISTER</a></li>
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+ <head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+  </style>
+ </head>
+ <body class="flex flex-col items-center justify-center min-h-screen bg-white">
+  <!-- Header -->
+  <header class="w-full bg-blue-500 text-white py-4">
+   <div class="container mx-auto flex justify-between items-center px-4">
+    <div class="flex items-center space-x-2">
+     <img alt="Company logo with a car icon" class="h-15 w-15" src="logo.svg"/>
+    </div>
+    <nav class="space-x-4">
+     <a class="hover:underline" href="home1.html">
+      Home
+     </a>
+     <a class="hover:underline" href="driverstypes.html">
+      Services
+     </a>
+     <a class="hover:underline" href="city.html">
+    city
+       </a>
+     <a class="hover:underline" href="contactpage.html">
+      Contact Us
+     </a>
+    </nav>
+   </div>
+  </header>
+  <!-- Main Content -->
+  <div class="text-center fade-in mt-8">
+   <h1 class="text-2xl font-bold mb-4">
+    Cities We Cater
+   </h1>
+   <p class="text-base mb-8">
+    We are committed to providing the best possible services in all cities. Driveronhire provides corporate drivers in Tumkur for business travel, airport transfers, long/short term stays, and excursions.
+   </p>
+   <div class="flex flex-col items-center">
+    <img alt="Map pin icon on a yellow base" class="mb-4" src="location.jpg"/>
+    <h2 class="text-4xl font-bold">
+     <a class="hover:underline" href="tumkur1.html">TUMKUR</a>
+    </h2>
+   </div>
+  </div>
+ </body>
+</html>

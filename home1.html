@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver On Hire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8fafc;
+            color: #1f2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            padding: 1.5rem 5rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .logo img {
+            height: 65px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .logo img:hover {
+            transform: scale(1.15) rotate(3deg);
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .navbar .auth a {
+            color: white;
+            font-size: 1rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .navbar .auth a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 4rem 4rem;
+            background: linear-gradient(120deg, #f8fafc 0%, #e2e8f0 100%);
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: #1e40af;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .hero .highlight {
+            color: #ef4444;
+            text-shadow: 1px 1px 2px rgba(248, 244, 244, 0.1);
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: transform 0.4s ease;
+        }
+
+        .hero img:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 5rem 4rem;
+            background: #fff;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card .image-container {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .feature-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .feature-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            color: #1e40af;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 5rem 4rem;
+            background: linear-gradient(to right, #f8fafc, #ffffff);
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-box h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-box p {
+            font-size: 1.2rem;
+            color: #4b5563;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 4rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .services h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1e40af;
+        }
+
+        .services > p {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2.5rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .service-box {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-box img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        .service-box h3 a {
+            font-size: 1.2rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .service-box h3 a:hover {
+            color: #1e40af;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1e40af, #1e3a8a);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        footer .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        footer h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: #fff;
+        }
+
+        footer ul li {
+            margin-bottom: 0.9rem;
+            color: #dbeafe;
+            font-size: 1rem;
+        }
+
+        footer .social-icons a {
+            color: white;
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #93c5fd;
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 2rem;
+            }
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .features, .stats, .services {
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.svg" alt="Driver Service Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="driverstypes.html">Services</a></li>
+                    <li><a href="city.html">Cities</a></li>
+                    <li><a href="contactpage.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Book Your <span class="highlight">Driver</span> in Just a Few Clicks</h2>
+        <img src="car.webp" alt="Yellow Car">
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="image-container">
+                <img src="img1.jpg" alt="Traffic">
+            </div>
+            <div class="feature-label">Local</div>
+        </div>
+        <div class="feature-card">
+            <div class="image-container">
+                <img src="img2.jpg" alt="Road">
+            </div>
+            <div class="feature-label">Outstation</div>
+        </div>
+        <div class="feature-card">
+            <div class="image-container">
+                <img src="img3.jpg" alt="Desert Road">
+            </div>
+            <div class="feature-label">Outstation Drop</div>
+        </div>
+        <div class="feature-card">
+            <div class="image-container">
+                <img src="img4.jpg" alt="Business Travel">
+            </div>
+            <div class="feature-label">Permanent</div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stat-box">
+            <h2>20,000+</h2>
+            <p>Police Verified Drivers</p>
+        </div>
+        <div class="stat-box">
+            <h2>5 Lakh+</h2>
+            <p>Happy Clients</p>
+        </div>
+        <div class="stat-box">
+            <h2>1 Lakh+</h2>
+            <p>Permanent Drivers</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h1>What We Offer</h1>
+        <p>We are committed to providing safe and reliable services. Our drivers are carefully vetted.</p>
+        <div class="grid">
+            <div class="service-box">
+                <img src="hourly.png" alt="Hourly Drivers">
+                <h3><a href="hourly1.html">Hourly Drivers</a></h3>
+            </div>
+            <div class="service-box">
+                <img src="outstation.png" alt="Outstation Drivers">
+                <h3><a href="outstation.html">Outstation Drivers</a></h3>
+            </div>
+            <div class="service-box">
+                <img src="daily.png" alt="Daily Drivers">
+                <h3><a href="daily1.html">Daily Drivers</a></h3>
+            </div>
+            <div class="service-box">
+                <img src="tempar.webp" alt="Temporary Drivers">
+                <h3><a href="temporary.html">Temporary Drivers</a></h3>
+            </div>
+            <div class="service-box">
+                <img src="night.png" alt="Night Drivers">
+                <h3><a href="night1.html">Night Drivers</a></h3>
+            </div>
+            <div class="service-box">
+                <img src="permanent.png" alt="Permanent Drivers">
+                <h3><a href="permanent1.html">Permanent Drivers</a></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6">
+                    <div class="flex items-center mb-4">
+                        <img src="logo.svg" alt="Driver on Hire logo" class="w-16 mr-4">
+                        <span class="text-2xl font-bold">Driver on Hire</span>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 mb-6">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li>Hourly Drivers</li>
+                        <li>Outstation Drivers</li>
+                        <li>Permanent Drivers</li>
+                        <li>Daily Drivers</li>
+                        <li>Temporary Drivers</li>
+                        <li>Night Drivers</li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-6">
+                    <h3>Cities Available</h3>
+                    <ul>
+                        <li>Drivers in Tumkur</li>
+                        <li>Drivers in Sira</li>
+                        <li>Drivers in Chinenahalli</li>
+                        <li>Drivers in Bangalore</li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            9/B Arasa Shopping Center, S.V Road, Andheri West, Tumkur - 400058
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            022 4343 9090
+                        </li>
+                        <li class="flex items-center mb-2">
+                            <i class="fas fa-envelope mr-2"></i>
+                            info@driveronhire.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 text-center">
+                <ul class="flex justify-center space-x-6">
+                    <li>About Us</li>
+                    <li>Rates</li>
+                    <li>Book Now</li>
+                    <li>Blog</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
